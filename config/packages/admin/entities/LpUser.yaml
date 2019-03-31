@@ -1,0 +1,46 @@
+easy_admin:
+    entities:
+      # UTILISATEUR
+      LpUser:
+          class: App\Entity\LpUser
+          label: 'Utilisateur'
+          list:
+              actions:
+                    - {name: 'show', icon: 'eye', label: false, css_class: 'btn btn-secondary'}
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+                    - {name: 'new', icon: 'plus', label: 'Ajouter un utilisateur', css_class: 'btn btn-success'}
+                    - {name: 'search', label: 'Rechercher'}
+              title: "Liste des utilisateurs"
+              fields:
+                    - { property: 'Id', label: 'N°' }
+                    - { property: 'firstname', label: 'Nom' }
+                    - { property: 'lastname', label: 'Prenom' }
+                    - { property: 'email', label: 'Email' }
+                    - { property: 'banned', label: 'Bannissement'}
+                    - { property: 'lpVisa', label: 'Role' }
+                    - { property: 'lpBorrows', label: 'Nombre de Prêts'}
+
+          edit:
+              title: "Edition"
+              fields:
+                  - { property: 'firstname' , label: 'Nom'}
+                  - { property: 'lastname', label: 'Prenom'}
+                  - { property: 'email', label: 'Email' }
+                  - { property: 'banned', label: 'Bannissement'}
+                  - { property: 'lpVisa', label: 'Role'}
+                  - { property: 'lpBorrows', label: 'Prêts'}
+          show:
+              title: 'Aperçu'
+              fields:
+                  - { property: 'firstname' , label: 'Nom'}
+                  - { property: 'lastname', label: 'Prenom'}
+                  - { property: 'email', label: 'Email' }
+                  - { property: 'banned', label: 'Bannissement'}
+                  - { property: 'lpVisa', label: 'Role'}
+                  - { property: 'lpBorrows', label: 'Prêts'}
+
+          templates:
+              edit: 'admin/edit/editUser.html.twig'
+
+                

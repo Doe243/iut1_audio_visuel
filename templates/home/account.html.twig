@@ -1,0 +1,202 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+  
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f1f1f1;
+    }
+
+    #regForm {
+      background-color: #ffffff;
+      margin: 100px auto;
+      font-family: Raleway;
+      padding: 40px;
+      width: 70%;
+      min-width: 300px;
+    }
+
+    h1 {
+      text-align: left;  
+      font-size:25px
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      font-size: 17px;
+      font-family: Raleway;
+      border: 1px solid #aaaaaa;
+      border-radius: 3px;
+    }
+
+    /* Mark input boxes that gets an error on validation: */
+    input.invalid {
+      background-color: #ffdddd;
+    }
+
+    /* Hide all steps by default: */
+    .tab {
+      display: none;
+    }
+
+    button {
+      background-color: #3399ff;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 17px;
+      font-family: Raleway;
+      border-radius:3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    #prevBtn {
+      background-color: #bbbbbb;
+    }
+
+    /* Make circles that indicate the steps of the form: */
+    .step {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbbbbb;
+      border: none;  
+      border-radius: 50%;
+      display: inline-block;
+      opacity: 0.5;
+    }
+
+    .step.active {
+      opacity: 1;
+    }
+
+    /* Mark the steps that are finished and valid: */
+    .step.finish {
+      background-color: #3399ff;
+    }
+
+  </style>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+{% if is_granted('ROLE_ETUD')  or is_granted('ROLE_PROF') or is_granted('ROLE_ADMIN') %}
+  <form id="regForm" action="">
+    <img class="pull-right" src="/assets/imges/logo_iut1.png" width=100>
+    
+    
+      <!-- One "tab" for each step in the form: -->
+      <div class="tab">
+        <h1 class="text-center" style="font-weight: bold">INFORMATIONS</h1>
+         <h5>Etape 1</h5>
+         <hr>
+         <label style="font-weight: bold">Nom</label>
+         <p><input placeholder="Votre nom..." oninput="this.className = ''" name="fname"></p>
+         
+         <label style="font-weight: bold">Prénom</label>
+         <p><input placeholder="Votre prénom..." oninput="this.className = ''" name="lname"></p>
+         <hr>
+        {% if is_granted('ROLE_ETUD') or is_granted('ROLE_ADMIN') %}
+
+        <!-- Choix Etudiant-->
+        <label style="font-weight: bold">Groupe Tp</label>
+        <p><input placeholder="Entrez le nom de votre groupe de tp..." oninput="this.className = ''" name="group_tp"></p>
+        <label style="font-weight: bold">Les autres étudiants </label>
+        <p><input placeholder="Entrez les noms des autres étudiants..." oninput="this.className = ''" name="etudiants"></p>
+        <label style="font-weight: bold">Nom du module</label>
+        <p><input placeholder="Entrez le nom de votre module..." oninput="this.className = ''" name="mod_etud"></p>
+
+        <label style="font-weight: bold">Cours</label>
+        <p><input placeholder="Entrez le nom du cours..." oninput="this.className = ''" name="cours_etud"></p>
+
+        <label style="font-weight: bold">Enseignant</label>
+        <p><input placeholder="Entrez le nom de l'enseignant..." oninput="this.className = ''" name="ens_etud"></p>
+
+        <label style="font-weight: bold">Lieu du tournage</label>
+        <p><input placeholder="Entrez le lieu du tournage..." oninput="this.className = ''" name="tournage"></p>
+
+        <label style="font-weight: bold">Description du tournage</label>
+        <p><input placeholder="Entrez la description de votre tournage..." oninput="this.className = ''" name="desc"></p>
+        
+        <!-- Fin -->
+        {% endif %}
+        
+
+         {% if is_granted('ROLE_PROF') %}
+        
+        <!-- Choix Prof-->
+        
+        <hr>
+            <h6>Choix du professeur</h6>
+        <hr>
+        <label style="font-weight: bold">Usage</label>
+        <select oninput="this.className = ''" name="cours_prof" class="custom-select">
+            <option selected>Choix usage</option>
+            <option value="1">usage personnel</option>
+            <option value="2">en cours</option>
+        </select>
+        <hr>
+        <label style="font-weight: bold">Nom du cours</label>
+        <p><input placeholder="Entrez votre cours" oninput="this.className = ''" name="cours_prof"></p>
+        
+        <!-- Fin -->
+
+        {% endif %}
+        <hr>
+        <label style="font-weight: bold">Adresse email</label>
+        <p><input placeholder="Votre adresse email..." oninput="this.className = ''" name="email"></p>
+      
+      </div>
+      
+      <div class="tab">
+        <h1 class="text-center" style="font-weight: bold">SELECTION DU MATERIEL</h1>
+         <h5>Etape 2</h5>
+         <hr>
+        <p><input placeholder="Recherche..." oninput="this.className = ''" name="recherche"></p>
+      </div>
+      <div class="tab">
+         <h1 class="text-center" style="font-weight: bold">RECAPUTILATIF</h1>
+         <h5>Etape 3</h5>
+         <hr>
+        <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
+        <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
+        <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
+      </div>
+    {#   <div class="tab">Login Info:
+        <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
+        <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
+      </div> #}
+      <div style="overflow:auto;">
+        <div style="float:right;">
+          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Précédent</button>
+          <button type="button" id="nextBtn" onclick="nextPrev(1)">Suivant</button>
+        </div>
+      </div>
+      <!-- Circles which indicates the steps of the form: -->
+      <div style="text-align:center;margin-top:40px;">
+        <span class="step"></span>
+        <span class="step"></span>
+        <span class="step"></span>
+        {# <span class="step"></span> #}
+      </div>
+    </form>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
+

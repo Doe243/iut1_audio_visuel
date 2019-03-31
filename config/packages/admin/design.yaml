@@ -1,0 +1,12 @@
+easy_admin:
+    design:
+        assets:
+            css:
+                - '/bundles/css/style.css'
+            js:
+                - '/bundles/js/script.js'
+            favicon: '/bundles/favicon.png'
+
+
+
+                

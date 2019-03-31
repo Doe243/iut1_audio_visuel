@@ -1,0 +1,31 @@
+{% extends '@EasyAdmin/default/edit.html.twig' %}
+
+{% block main %}
+{% block entity_form %}
+
+    {{ form_start(form) }}
+	<h3 class="text-center">Modification de l'utilisateur</h3>
+
+	<hr class="mx-5">
+
+               {{ form_row(form.firstname) }}
+               {{ form_row(form.lastname) }}
+               {{ form_row(form.email) }}
+               {{ form_row(form.banned) }}
+               {{ form_row(form.lpVisa) }}
+               
+
+              <div class="d-none">
+               {{ form_row(form.lpBorrows) }}
+               {{ form_row(form.password) }}
+               {{ form_row(form.lpGroups) }}
+             </div>
+
+	<hr class="mx-5">
+
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,7 @@
+easy_admin:
+    entities:
+      LpGroup:
+          class: App\Entity\LpGroup
+          label: 'Groupe'
+
+                

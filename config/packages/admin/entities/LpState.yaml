@@ -1,0 +1,34 @@
+easy_admin:
+    entities:
+      # STATE
+      LpState:
+          class: App\Entity\LpState
+          label: "Libellés - Etat d'un matériel"
+          list:
+              actions:
+                    - {name: 'show', icon: 'eye', label: false, css_class: 'btn btn-secondary'}
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+                    - {name: 'new', icon: 'plus', label: 'Ajouter un état', css_class: 'btn btn-success'}
+                    - {name: 'search', label: 'Rechercher'}
+              title: "Libellés - Etat d'un matériel"
+              fields:
+                    - { property: 'Id', label: 'N°' }
+                    - { property: 'name', label: 'Libellé' }
+                    - { property: 'stateProduct', label: "Nombre de matériel concerné"}
+
+          edit:
+              title: "Edition"
+              fields:
+                  - { property: 'name' , label: 'Nom'}
+
+          show:
+              title: 'Aperçu'
+              fields:
+                  - { property: 'name' , label: 'Nom'}
+                  - { property: 'stateProduct' , label: 'Produit concerné'}
+          templates:
+              edit: 'admin/edit/editState.html.twig'
+
+
+                

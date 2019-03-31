@@ -1,0 +1,22 @@
+{% extends '@EasyAdmin/default/edit.html.twig' %}
+
+{% block main %}
+{% block entity_form %}
+
+    {{ form_start(form) }}
+	<h3 class="text-center">Modification du libillé</h3>
+
+	<hr class="mx-5">
+
+
+               {{ form_row(form.name) }}
+
+
+	<hr class="mx-5">
+
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
+{% endblock %}

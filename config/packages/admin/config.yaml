@@ -1,0 +1,14 @@
+easy_admin:
+    formats:
+        datetime: 'd/m/Y'
+    site_name: 'Dashboard <em style="color:red;font-size:80%">Audio Visuel MMI</em>'
+    design:
+        assets:
+            css:
+                - '/bundles/css/style.css'
+            js:
+                - '/bundles/js/script.js'
+
+
+
+                

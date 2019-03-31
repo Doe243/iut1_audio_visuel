@@ -1,0 +1,55 @@
+easy_admin:
+    entities:
+      # MATERIALS
+      LpProduct:
+          class: App\Entity\LpProduct
+          label: 'Matériels'
+          icon: 'users'
+          list:
+              actions:
+                    - {name: 'show', icon: 'eye', label: false, css_class: 'btn btn-secondary'}
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+                    - {name: 'new', icon: 'plus', label: 'Ajouter un matériel', css_class: 'btn btn-success'}
+                    - {name: 'search', label: 'Rechercher'}
+              title: "Liste des produits"
+              fields:
+                    - { property: 'Id', label: 'N°' }
+                    - { property: 'Name', label: 'Nom' }
+                    - { property: 'LpState', label: 'Etat' }
+                    - { property: 'image', type: 'image'}
+                    - { property: 'disponibility', label: 'disbonibilité'}
+
+          edit:
+              title: 'Edition'
+              fields:
+                  - { property: 'name' , label: 'Nom'}
+                  - { property: 'comment', label: 'Commentaire'}
+                  - { property: 'disponibility', label: 'disponibilité'}
+                  - { property: 'model', label: 'Model' }
+                  - { property: 'purchase_date', label: "Date d'achat"}
+                  - { property: 'inventor_number', label: "Numero d'inventaire"}
+                  - { property: 'store_number', label: 'Numero de magasin'}
+                  - { property: 'image', label: "Numero d'inventaire"}
+                  - { property: 'lpState', label: 'Etat'}
+                  - { property: 'lpProductCat', label: 'Catégorie'}
+                  - { property: 'image'}
+          show:
+              title: 'Aperçu'
+              fields:
+                  - { property: 'name' , label: 'Nom'}
+                  - { property: 'comment', label: 'Commentaire'}
+                  - { property: 'disponibility', label: 'disponibilité'}
+                  - { property: 'model', label: 'Model' }
+                  - { property: 'purchase_date', label: "Date d'achat"}
+                  - { property: 'inventor_number', label: "Numero d'inventaire"}
+                  - { property: 'store_number', label: 'Numero de magasin'}
+                  - { property: 'image', label: "Numero d'inventaire"}
+                  - { property: 'lpState', label: 'Etat du matériel'}
+                  - { property: 'lpProductCat', label: 'Catégorie'}
+                  - { property: 'image', type: 'image'}
+
+          templates:
+              edit: 'admin/edit/editProduct.html.twig'
+
+                  

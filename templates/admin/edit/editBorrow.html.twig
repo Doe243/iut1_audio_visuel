@@ -1,0 +1,35 @@
+{% extends '@EasyAdmin/default/edit.html.twig' %}
+
+{% block main %}
+{% block entity_form %}
+
+    {{ form_start(form) }}
+	<h3 class="text-center">Modification du prêt</h3>
+
+	<hr class="mx-5">
+
+	<h4 class="text-center">Récapitulation</h4>
+
+               {{ form_row(form.lpUser) }}
+               {{ form_row(form.group_name) }}
+               {{ form_row(form.comment) }}
+               {{ form_row(form.borrow_return_date) }}
+
+	<hr class="mx-5">
+
+	<h4 class="text-center">Modifier</h4>
+
+               {{ form_row(form.product) }}
+               {{ form_row(form.borrow_date) }}
+               {{ form_row(form.borrow_return) }}
+               {{ form_row(form.commentAdmin) }}
+               {{ form_row(form.lpVisa) }}
+        
+    <hr class="mx-5">
+
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,35 @@
+easy_admin:
+    entities:
+      # VISA
+      LpVisa:
+          class: App\Entity\LpVisa
+          label: "Libellés - Status d'un prêt"
+          list:
+              actions:
+                    - {name: 'show', icon: 'eye', label: false, css_class: 'btn btn-secondary'}
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+                    - {name: 'new', icon: 'plus', label: 'Ajouter un status', css_class: 'btn btn-success'}
+                    - {name: 'search', label: 'Rechercher'}
+              title: "Libellés - Status d'un prêt"
+              fields:
+                    - { property: 'Id', label: 'N°' }
+                    - { property: 'name', label: 'Libellé' }
+                    - { property: 'lpVisa', label: "Nombre de prêt concerné"}
+
+          edit:
+              title: "Edition"
+              fields:
+                  - { property: 'name' , label: 'Nom'}
+                  
+          show:
+              title: 'Aperçu'
+              fields:
+                  - { property: 'name' , label: 'Nom'}
+                  - { property: 'lpVisa' , label: 'Prêt concerné'}
+          templates:
+              edit: 'admin/edit/editVisa.html.twig'
+
+
+
+                

@@ -1,0 +1,18 @@
+easy_admin:
+    design:
+         menu:
+            - { label: 'Voir le site', url: '/', icon: 'arrow-right' }
+            - {entity: 'LpBorrow', icon: 'shopping-cart', label: 'Prêts'}
+            - {entity: 'LpProduct', icon: 'camera', label: 'Matériels'}
+            - {entity: 'LpUser', icon: 'users', label: 'Utilisateurs'}
+
+            - label: 'Paramètres'
+              icon: 'cogs'
+              children:
+                  - {entity: 'LpProductCat', icon: 'align-justify', label: 'Catégories matériel'}
+                  - {entity: 'LpVisa', icon: 'align-justify', label: "Status d'un prêt"}
+                  - {entity: 'LpState', icon: 'align-justify', label: "Etat d'un matériel"}
+
+
+
+                

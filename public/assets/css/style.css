@@ -1,0 +1,13 @@
+body{
+    background-image:url("./assets/imges/audio.jpg") ;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Roboto Slab', serif;
+    background: #e0e0d1; 
+}
+
+.avatar-mini {
+    max-width: 24px;
+    max-height: 24px;
+}
+

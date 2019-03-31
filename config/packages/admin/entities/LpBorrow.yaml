@@ -1,0 +1,64 @@
+easy_admin:
+  entities:
+      # PRET
+      LpBorrow:
+          class: App\Entity\LpBorrow
+          label: 'Prêt'
+          list:
+              actions:
+                    - {name: 'show', icon: 'eye', label: false, css_class: 'btn btn-secondary'}
+                    - {name: 'edit', icon: 'pencil', label: false, css_class: 'btn btn-primary'}
+                    - {name: 'delete', icon: 'trash', label: false, css_class: 'btn btn-danger'}
+                    - {name: 'new', icon: 'plus', label: 'Ajouter un prêt', css_class: 'btn btn-success'}
+                    - {name: 'search', label: 'Rechercher'}
+              title: "Liste des prêt"
+              fields:
+                    - { property: 'lpUser', label: 'Utilisateur' }
+                    - { property: 'product', label: 'Matériel' }
+                    - { property: 'lpVisa', label: 'État', css_class: 'stateBorrow'}
+                    - { property: 'product', label: 'Matériel' }
+                    - { property: 'borrow_date', label: 'Début du prêt' }
+                    - { property: 'borrow_return', label: 'Fin du prêt', css_class: 'endBorrow'}
+                    - { property: 'borrow_return_date', label: 'Retour', css_class: 'returnBorrow' }
+
+          show:
+              title: 'Aperçu'
+              fields:
+                  - { property: 'lpUser' , label: 'Utilisateur'}
+                  - { property: 'group_name', label: 'Autre membre du groupe'}
+                  - { property: 'product', label: 'Matériels' }
+                  - { property: 'borrow_date', label: 'Début du prêt' }
+                  - { property: 'borrow_return', label: 'Fin du prêt' }
+                  - { property: 'comment', label: 'Commentaire (Utilisateur)'}
+                  - { property: 'commentAdmin', label: 'Commentaire (Admin)'}
+                  - { property: 'lpVisa', label: 'Status'}
+          new:
+              title: 'Ajouter un prêt'
+              fields:
+                  - { property: 'lpUser', label: 'Utilisateur' }
+                  - { property: 'group_name', label: 'Autre membre du groupe', type: 'text'}
+                  - { property: 'borrow_date', label: 'Début du prêt' }
+                  - { property: 'borrow_return', label: 'Fin du prêt' }
+                  - { property: 'borrow_return_date', label: 'Retour', css_class: 'd-none' }
+                  - { property: 'product', label: 'Matériels' }
+                  - { property: 'lpVisa', label: 'Status' }
+                  - { property: 'comment', label: 'Commentaire (Utilisateur)', type: 'textarea' }
+                  - { property: 'commentAdmin', label: 'Commentaire (Admin)', type: 'textarea' }           
+          templates:
+              edit: 'admin/edit/editBorrow.html.twig'
+              show: 'admin/edit/viewBorrow.html.twig'
+          form:
+              title: 'Edition'
+              fields:
+                  - { property: 'lpUser' }
+                  - { property: 'group_name', label: 'Autre membre du groupe', type: 'text'}
+                  - { property: 'borrow_date', label: 'Début du prêt' }
+                  - { property: 'borrow_return', label: 'Fin du prêt' }
+                  - { property: 'borrow_return_date', label: 'Retour' }
+                  - { property: 'product', label: 'Matériels' }
+                  - { property: 'lpVisa', label: 'Status' }
+                  - { property: 'comment', label: 'Commentaire (Utilisateur)', type: 'textarea' }
+                  - { property: 'commentAdmin', label: 'Commentaire (Admin)', type: 'textarea' }
+
+
+                
